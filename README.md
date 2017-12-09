@@ -1,1 +1,1 @@
-# sheet-latex-scientific-notation-generator
+# Sheet LaTeX Scientific Notation Generator
