@@ -2,11 +2,69 @@
     <head>
         <title>Sheet LaTeX Scientific Notation Generator</title>
         <script src="main.gs"></script>
+        <script type="text/javascript" async
+          src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+        </script>
+        <script>
+            function clickMethod()
+            {
+                var SciN1, SciNLaTex;
+                SciN1 = document.getElementById("SciNotation");
+                SciNLaTex = document.getElementById("SciNotationLaTex");
+                SciNLaTexShow = document.getElementById("SciNotationLaTexShow");
+                var var1   = document.getElementById("var1").value;
+                var digit1 = document.getElementById("digit1").value;
+                SciN1.value = SciNotation(var1, digit1);
+                SciNLaTex.value = "$" + SciNotationLaTex(var1, digit1) + "$";
+                SciNLaTexShow.innerHTML = "\\(" + SciNotationLaTex(var1, digit1) + "\\)";
+                MathJax.Hub.Typeset();
+            } 
+            
+            function copyText(name)
+            {
+                var text = document.getElementById(name);
+                text.select();
+                document.execCommand("copy");
+                alert("Copied!");
+            }
+        </script>
+        <style>
+            span {
+                color: #555;
+            }
+            footer {
+                text-align: center;
+            }
+        </style>
     </head>
     <body>
-        <h1>Sheet LaTeX Scientific Notation Generator</h1>
+        <h1>LaTeX Scientific Notation Generator</h1>
+        <p>LaTeX科學記號產生器</p>
+        <hr>
 
-
+        <p>
+            <input type="number" id="var1" value="0.0233333">
+            accurate to
+            <input type="number" id="digit1" value="3">
+            decimal places.
+        </p>
+        <button type="button" onclick="clickMethod()">Scientific Notation</button>
+        <div>
+            <p>float: <input type="text" id="SciNotation"></p>
+            <p>
+                LaTeX: <input type="text" id="SciNotationLaTex">
+                <button type="button" onclick="copyText('SciNotationLaTex')">copy</button>
+            </p>
+            <p>LaTeX Preview: <span id="SciNotationLaTexShow"></span></p>
+        </div>
+        <hr>
+        <h2>For Sheet (Google Sheet or MS Excel)</h2>
+        <hr>
+        <footer>
+            <a href="https://github.com/r888800009">r888800009</a> 2017-2018
+        </footer>
+        <a href="https://github.com/r888800009/sheet-latex-scientific-notation-generator"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
     </body>
+    
 
 </html>
