@@ -18,7 +18,7 @@
                 SciN1.value = SciNotation(var1, digit1);
                 SciNLaTex.value = "$" + SciNotationLaTex(var1, digit1) + "$";
                 SciNLaTexShow.innerHTML = "\\(" + SciNotationLaTex(var1, digit1) + "\\)";
-                MathJax.Hub.Typeset();
+                MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
             } 
             
             function copyText(name)
