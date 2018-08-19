@@ -14,7 +14,7 @@ function bankRound(value, places) {
 
 function SciNotation(value, digit){
   var toNumber = parseFloat(value);
-  var getDigit = Math.floor(Math.log(toNumber) / Math.log(10));
+  var getDigit = Math.floor(Math.log(Math.abs(toNumber)) / Math.log(10));
   toNumber /= Math.pow(10, getDigit + 1);
   toNumber = bankRound(toNumber, digit) * 10;
   toNumber.toFixed(digit + 2);
