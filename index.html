@@ -41,9 +41,16 @@
     <body>
         <h1>LaTeX Scientific Notation Generator</h1>
         <p>LaTeX科學記號產生器</p>
+        <p> Disclaimer: the tool is a demo and using javascript floating point number (IEEE 754) to calculate, 
+            we not guarantee the accuracy of the result. </p>
+        </p>
         <hr>
 
         <p>
+            <select id="method">
+                <option value="1" selected>banker's rounding</option>
+            </select>
+
             <input type="number" id="var1" value="0.0233333">
             accurate to
             <input type="number" id="digit1" value="3" min="1" max="9" onchange="clickMethod()">
